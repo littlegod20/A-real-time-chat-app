@@ -24,7 +24,7 @@ export const formLabels: FormTypes[] = [
 
 
 export const signUpData:AuthType = {
-  first_name: "",
+  name: "",
   surname: "",
   email: "",
   password: "",

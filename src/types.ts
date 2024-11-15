@@ -1,5 +1,5 @@
 export interface AuthType {
-  first_name: string;
+  name: string;
   surname: string;
   email: string;
   password: string;

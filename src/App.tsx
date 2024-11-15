@@ -1,13 +1,13 @@
 import './App.css'
-import Login from './pages/auth/Login'
-// import SignUp from './pages/auth/SignUp'
+// import Login from './pages/auth/Login'
+import SignUp from './pages/auth/SignUp'
 
 function App() {
 
   return (
     <main>
-      {/* <SignUp/> */}
-      <Login/>
+      <SignUp/>
+      {/* <Login/> */}
     </main>
   )
 }

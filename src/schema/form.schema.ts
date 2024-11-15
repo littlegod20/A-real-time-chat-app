@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const signUpFormSchema = z.object({
-  first_name: z
+  name: z
     .string()
     .min(2, { message: "first name should be at least 2 characters" })
     .max(50),
