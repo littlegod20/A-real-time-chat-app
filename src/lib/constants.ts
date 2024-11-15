@@ -1,12 +1,8 @@
+import { AuthType, FormTypes } from "@/types";
 
 
-export interface Props{
-  label:string;
-  placeholder:string
-}
 
-
-export const formLabels:Props[] = [
+export const formLabels: FormTypes[] = [
   {
     label: "name",
     placeholder: "eg. John",
@@ -24,3 +20,17 @@ export const formLabels:Props[] = [
     placeholder: "five alphanumeric chars or more",
   },
 ];
+
+
+
+export const signUpData:AuthType = {
+  first_name: "",
+  surname: "",
+  email: "",
+  password: "",
+};
+
+export const loginData: Partial<AuthType> = {
+  email: "",
+  password: "",
+};

@@ -1,4 +1,4 @@
-import { formSchema } from "@/schema/form.schema";
+import { signUpFormSchema } from "@/schema/form.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -9,24 +9,20 @@ import {
   FormItem,
   FormLabel,
 } from "@/components/ui/form";
-import { formLabels } from "@/lib/constants";
-import { Input } from "./ui/input";
-import { Button } from "./ui/button";
+import { formLabels, signUpData } from "@/lib/constants";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { AuthType } from "@/types";
 
-const Forms = () => {
+const SignUp = () => {
   // defined my form
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      surname: "",
-      email: "",
-      password: "",
-    },
+  const form = useForm<z.infer<typeof signUpFormSchema>>({
+    resolver: zodResolver(signUpFormSchema),
+    defaultValues: signUpData,
   });
 
   // define my onsubmit function
-  const onSubmit = (value: z.infer<typeof formSchema>) => {
+  const onSubmit = (value: z.infer<typeof signUpFormSchema>) => {
     console.log(value);
   };
 
@@ -40,27 +36,32 @@ const Forms = () => {
           {formLabels.map((item) => (
             <FormField
               control={form.control}
-              name={item.label as "name"}
+              name={item.label as keyof AuthType}
               key={item.label}
-              render={({ field , fieldState:{error}}) => (
+              render={({ field, fieldState: { error } }) => (
                 <FormItem>
                   <FormLabel>
-                    {item.label[0].toUpperCase() + item.label.slice(1)}
+                    <p className="text-sky-950 font-semibold text-xs">
+                      {item.label[0].toUpperCase() + item.label.slice(1)}
+                    </p>
                   </FormLabel>
                   <FormControl>
                     <Input placeholder={item.placeholder} {...field} />
-                    {error ? 
-                      <div>
-                        {error.message}
-                      </div>
-                     : ''}
                   </FormControl>
+                  {error ? (
+                    <p className="text-red-600 text-xs">{error.message}</p>
+                  ) : (
+                    ""
+                  )}
                 </FormItem>
               )}
             />
           ))}
           <div className="pt-3">
-            <Button type="submit" className="w-full">
+            <Button
+              type="submit"
+              className="w-full hover:bg-sky-950 bg-sky-900"
+            >
               Submit
             </Button>
           </div>
@@ -70,4 +71,4 @@ const Forms = () => {
   );
 };
 
-export default Forms;
+export default SignUp;
