@@ -11,6 +11,7 @@ import { formLabels, loginData } from "@/lib/constants";
 import { loginFormSchema } from "@/schema/form.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import { z } from "zod";
 
 const Login = () => {
@@ -77,9 +78,12 @@ const Login = () => {
               <div className="w-full flex justify-center pt-2">
                 <p className="text-sm">
                   Don't have an account? Sign up{" "}
-                  <span className="text-sky-950 font-semibold hover:text-sky-600 hover:cursor-pointer">
+                  <Link
+                    to="/signup"
+                    className="text-sky-950 font-semibold hover:text-sky-600 hover:cursor-pointer"
+                  >
                     here
-                  </span>
+                  </Link>
                 </p>
               </div>
             </div>

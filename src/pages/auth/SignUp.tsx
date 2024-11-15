@@ -13,6 +13,7 @@ import { formLabels, signUpData } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AuthType } from "@/types";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   // defined my form
@@ -78,9 +79,12 @@ const SignUp = () => {
               <div className="w-full flex justify-center pt-2">
                 <p className="text-sm">
                   Already have an account? Log in{" "}
-                  <span className="text-sky-950 font-semibold hover:text-sky-600 hover:cursor-pointer">
+                  <Link
+                    to="/login"
+                    className="text-sky-950 font-semibold hover:text-sky-600 hover:cursor-pointer"
+                  >
                     here
-                  </span>
+                  </Link>
                 </p>
               </div>
             </div>
