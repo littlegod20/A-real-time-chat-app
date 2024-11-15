@@ -74,6 +74,14 @@ const Login = () => {
               >
                 Submit
               </Button>
+              <div className="w-full flex justify-center pt-2">
+                <p className="text-sm">
+                  Don't have an account? Sign up{" "}
+                  <span className="text-sky-950 font-semibold hover:text-sky-600 hover:cursor-pointer">
+                    here
+                  </span>
+                </p>
+              </div>
             </div>
           </form>
         </Form>
