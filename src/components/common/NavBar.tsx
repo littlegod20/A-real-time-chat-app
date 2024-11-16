@@ -11,27 +11,29 @@ const NavBar = () => {
     setIsMenuClicked(!isMenuClicked);
   };
   return (
-    <nav className="w-full sticky top-0 flex p-4">
+    <nav className="w-full flex p-4 sticky top-0 backdrop-blur-lg z-50">
       {/* Logo section */}
-      <section className="relative w-1/6 ">
-        <Link to="/">
-          <img
-            src={chat}
-            alt="logo image"
-            className="w-12 sm:w-16 hover:cursor-pointer"
-          />
-        </Link>
-      </section>
+      <div className="w-full flex sticky top-0">
+        <section className="relative w-1/6">
+          <Link to="/">
+            <img
+              src={chat}
+              alt="logo image"
+              className="w-12 sm:w-16 hover:cursor-pointer"
+            />
+          </Link>
+        </section>
 
-      {/* Desktop View for menu */}
-      <DesktopMenu />
+        {/* Desktop View for menu */}
+        <DesktopMenu />
 
-      {/* Mobile View for menu */}
-      <MobileView
-        handleHamburgerMenu={handleHamburgerMenu}
-        isMenuClicked={isMenuClicked}
-        setIsMenuClicked={setIsMenuClicked}
-      />
+        {/* Mobile View for menu */}
+        <MobileView
+          handleHamburgerMenu={handleHamburgerMenu}
+          isMenuClicked={isMenuClicked}
+          setIsMenuClicked={setIsMenuClicked}
+        />
+      </div>
     </nav>
   );
 };
