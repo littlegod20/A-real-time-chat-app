@@ -30,6 +30,7 @@ const NavBar = () => {
       <MobileView
         handleHamburgerMenu={handleHamburgerMenu}
         isMenuClicked={isMenuClicked}
+        setIsMenuClicked={setIsMenuClicked}
       />
     </nav>
   );
