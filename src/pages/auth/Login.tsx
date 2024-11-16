@@ -11,7 +11,7 @@ import { formLabels, loginData } from "@/lib/constants";
 import { loginFormSchema } from "@/schema/form.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { z } from "zod";
 
 const Login = () => {
@@ -21,9 +21,12 @@ const Login = () => {
     defaultValues: loginData,
   });
 
+  const navigate = useNavigate();
+
   // handling submit
   const onSubmit = (val: z.infer<typeof loginFormSchema>) => {
     console.log(val);
+    navigate("/chats");
   };
 
   return (
