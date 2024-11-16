@@ -1,4 +1,5 @@
 import { Menu } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface MobileProps {
   handleHamburgerMenu: () => void;
@@ -19,12 +20,15 @@ const MobileView: React.FC<MobileProps> = ({
         {isMenuClicked ? (
           <div className="absolute top-10  w-full flex justify-center shadow-md">
             <ul className="w-full bg-sky-700 rounded-s-xl rounded-br-xl text-white flex flex-col justify-center items-center space-y-2">
-              <div className="p-3 border-b-[1px] w-full text-center">
+              <Link to="/" className="p-3 border-b-[1px] w-full text-center">
                 <li>Home</li>
-              </div>
-              <div className="p-3 w-full text-center hover:bg-sky-900">
+              </Link>
+              <Link
+                to="/about"
+                className="p-3 w-full text-center hover:bg-sky-900"
+              >
                 <li>About</li>
-              </div>
+              </Link>
             </ul>
           </div>
         ) : null}
