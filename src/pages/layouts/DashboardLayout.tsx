@@ -1,16 +1,19 @@
-import Dashboard from "@/components/common/Dashboard"
-import { Outlet } from "react-router-dom"
-
+import DashboardDesktop from "@/components/common/DashboardDesktop";
+import DashboardMobile from "@/components/common/DashboardMobile";
+import { Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
   return (
-    <main className="flex bg-sky-900 text-white font-semibold">
-      <Dashboard/>
-      <section className="w-full h-screen">
-        <Outlet/>
+    <main className=" sm:flex bg-sky-900 text-white font-semibold">
+      <section>
+        <DashboardDesktop />
+        <DashboardMobile/>
+      </section>
+      <section className="w-full relative">
+        <Outlet />
       </section>
     </main>
-  )
-}
+  );
+};
 
-export default DashboardLayout
+export default DashboardLayout;
