@@ -24,8 +24,8 @@ const Dashboard = () => {
 
   return (
     <main
-      className={`h-screen bg-sky-950 w-72 relative transition-all ${
-        isDashboard ? "" : "translate-x-0 w-16"
+      className={`hidden sm:block h-screen bg-sky-950 w-72 relative transition-all ${
+        isDashboard ? "" : "w-[70px]"
       }`}
     >
       <header className="relative top-0 flex items-center gap-4 p-4">
@@ -74,7 +74,8 @@ const Dashboard = () => {
       </section>
 
       <section className="flex flex-col p-2 space-y-3">
-        <Link to='/settings'
+        <Link
+          to="/settings"
           className={`flex gap-2 hover:bg-sky-900 p-2 rounded-sm transition-all duration-300 ease-in hover:cursor-pointer ${
             activeTab === "settings" ? "bg-sky-900" : ""
           }`}
@@ -82,7 +83,8 @@ const Dashboard = () => {
         >
           <Settings /> {isDashboard ? "Settings" : ""}
         </Link>
-        <Link to='/profile'
+        <Link
+          to="/profile"
           className={`flex gap-2 hover:bg-sky-900 p-2 rounded-sm transition-all duration-300 ease-in hover:cursor-pointer ${
             activeTab === "profile" ? "bg-sky-900" : ""
           }`}
