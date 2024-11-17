@@ -10,7 +10,7 @@ import chat from "../../assets/chat.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Dashboard = () => {
+const DashboardDesktop = () => {
   const [activeTab, setActiveTab] = useState("chats");
   const [isDashboard, setIsDashboard] = useState(true);
 
@@ -98,4 +98,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default DashboardDesktop;
