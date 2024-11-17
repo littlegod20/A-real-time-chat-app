@@ -24,7 +24,7 @@ const Dashboard = () => {
 
   return (
     <main
-      className={`hidden sm:block h-screen bg-sky-950 w-72 relative transition-all ${
+      className={`hidden sm:block h-screen bg-sky-950 w-72 relative z-50 transition-all ${
         isDashboard ? "" : "w-[70px]"
       }`}
     >

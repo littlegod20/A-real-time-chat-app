@@ -4,20 +4,20 @@ import { Textarea } from "../ui/textarea";
 
 const ChatInputs = () => {
   return (
-    <section className="flex justify-center items-center space-x-3">
-      <div className="p-2 hover:bg-sky-900 hover:cursor-pointer transition-all duration-300 ease-in rounded-full">
+    <section className="flex justify-center items-center space-x-5 w-full">
+      <div className="sm:p-2 hover:bg-sky-950 hover:cursor-pointer transition-all duration-300 ease-in rounded-full">
         <SmilePlus />
       </div>
 
-      <div className="p-2 hover:bg-sky-900 hover:cursor-pointer transition-all duration-300 ease-in rounded-full">
+      <div className="sm:p-2 hover:bg-sky-950 hover:cursor-pointer transition-all duration-300 ease-in rounded-full">
         <Paperclip />
       </div>
       <Textarea
-        className="w-11/12 bg-sky-800 shadow-inner shadow-sky-900"
+        className="w-[60%] bg-sky-900 shadow-inner shadow-sky-900 border-0"
         placeholder="Write something here"
       />
 
-      <div className="p-2 hover:bg-sky-900 hover:cursor-pointer transition-all duration-300 ease-in rounded-full">
+      <div className="sm:p-2 hover:bg-sky-950 hover:cursor-pointer transition-all duration-300 ease-in rounded-full">
         <Send />
       </div>
     </section>
