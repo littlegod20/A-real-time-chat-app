@@ -18,8 +18,8 @@ const MessageBubble: React.FC<BubbleTypes> = ({
       <aside
         className={`max-w-xs sm:max-w-md w-3/4 sm:w-1/2 text-sm font-normal bg-blue-900  p-2 shadow-md ${
           isSender
-            ? "rounded-r-md rounded-bl-md"
-            : "rounded-l-md rounded-br-md "
+            ? "rounded-r-xl rounded-bl-3xl"
+            : "rounded-l-xl rounded-br-3xl pl-4 "
         }`}
       >
         {message}

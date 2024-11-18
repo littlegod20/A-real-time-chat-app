@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 const DashboardDesktop = () => {
   const [activeTab, setActiveTab] = useState("chats");
-  const [isDashboard, setIsDashboard] = useState(true);
+  const [isDashboard, setIsDashboard] = useState(false);
 
   const handleSetActiveTab = (val: string) => {
     setActiveTab(val);
