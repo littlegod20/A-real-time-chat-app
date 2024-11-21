@@ -1,6 +1,11 @@
-import { AuthType, FormTypes } from "@/types";
-
-
+import { AuthType, FormTypes } from "@/utils/types";
+import {
+  CircleDashed,
+  MessageCircle,
+  Phone,
+  Settings,
+  UserRoundPen,
+} from "lucide-react";
 
 export const formLabels: FormTypes[] = [
   {
@@ -21,9 +26,7 @@ export const formLabels: FormTypes[] = [
   },
 ];
 
-
-
-export const signUpData:AuthType = {
+export const signUpData: AuthType = {
   name: "",
   surname: "",
   email: "",
@@ -34,3 +37,26 @@ export const loginData: Partial<AuthType> = {
   email: "",
   password: "",
 };
+
+export const dashTabs = [
+  {
+    name: "Chats",
+    icon: MessageCircle,
+  },
+  {
+    name: "Status",
+    icon: CircleDashed,
+  },
+  {
+    name: "Calls",
+    icon: Phone,
+  },
+  {
+    name: "Settings",
+    icon: Settings,
+  },
+  {
+    name: "Profile",
+    icon: UserRoundPen,
+  },
+];

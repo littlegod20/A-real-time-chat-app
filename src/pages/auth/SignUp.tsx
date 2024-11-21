@@ -12,7 +12,7 @@ import {
 import { formLabels, signUpData } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { AuthType } from "@/types";
+import { AuthType } from "@/utils/types";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {

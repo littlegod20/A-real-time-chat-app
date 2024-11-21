@@ -1,26 +1,30 @@
-import {
-  CircleDashed,
-  Menu,
-  MessageCircle,
-  Phone,
-  Settings,
-  UserRoundPen,
-} from "lucide-react";
-import chat from "../../assets/chat.png";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Menu } from "lucide-react";
+import { useEffect, useState, useTransition } from "react";
+import { useNavigate } from "react-router-dom";
+import DashTabBg from "../widgets/DashTabBg";
+import { dashTabs } from "@/lib/constants";
 
 const DashboardDesktop = () => {
+  const [, startTransition] = useTransition();
   const [activeTab, setActiveTab] = useState("chats");
   const [isDashboard, setIsDashboard] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleSetActiveTab = (val: string) => {
-    setActiveTab(val);
+    // this is used to set priority for the tabs. so when a user has already clicked a tab an is in the process of loading and then the user clicks another tab to move there, this code allows the user to move freely to the new tab without waiting for the current tab to finish loading
+    startTransition(() => setActiveTab(val));
   };
 
   const handleOpenDashboard = () => {
     setIsDashboard(!isDashboard);
   };
+
+  useEffect(() => {
+    navigate(`/${activeTab}`);
+  }, [navigate, activeTab]);
+
+  //
 
   return (
     <main
@@ -29,7 +33,7 @@ const DashboardDesktop = () => {
       }`}
     >
       <header className="relative top-0 flex items-center gap-4 p-4">
-        <img src={chat} alt="logo image" className="w-8" />
+        <img src={"/chat.png"} alt="logo image" className="w-8" />
         {isDashboard ? <p className="text-sm italic">ChatApp</p> : ""}
       </header>
 
@@ -40,59 +44,29 @@ const DashboardDesktop = () => {
       </aside>
 
       <section className="space-y-2 p-2 h-[65%]">
-        <Link
-          to="/chats"
-          className={`flex gap-2 hover:bg-sky-900 p-2 rounded-sm transition-all duration-300 ease-in hover:cursor-pointer ${
-            activeTab === "chats" ? "bg-sky-900" : ""
-          }`}
-          onClick={() => handleSetActiveTab("chats")}
-        >
-          {" "}
-          <MessageCircle size={25} /> {isDashboard ? "Chats" : ""}
-        </Link>
-        <Link
-          to="/status"
-          className={`flex gap-2 hover:bg-sky-900 p-2 rounded-sm transition-all duration-300 ease-in hover:cursor-pointer ${
-            activeTab === "status" ? "bg-sky-900" : ""
-          }`}
-          onClick={() => handleSetActiveTab("status")}
-        >
-          {" "}
-          <CircleDashed size={25} /> {isDashboard ? "Status" : ""}
-        </Link>
-        <Link
-          to="/calls"
-          className={`flex gap-2 hover:bg-sky-900 p-2 rounded-sm transition-all duration-300 ease-in hover:cursor-pointer ${
-            activeTab === "calls" ? "bg-sky-900" : ""
-          }`}
-          onClick={() => handleSetActiveTab("calls")}
-        >
-          {" "}
-          <Phone size={25} />
-          {isDashboard ? "Calls" : ""}
-        </Link>
+        {dashTabs.slice(0, 3).map((item, index) => (
+          <DashTabBg
+            name={item.name}
+            isDashboard={isDashboard}
+            handleSetActiveTab={handleSetActiveTab}
+            activeTab={activeTab}
+            Icon={item.icon}
+            key={index}
+          />
+        ))}
       </section>
 
       <section className="flex flex-col p-2 space-y-3">
-        <Link
-          to="/settings"
-          className={`flex gap-2 hover:bg-sky-900 p-2 rounded-sm transition-all duration-300 ease-in hover:cursor-pointer ${
-            activeTab === "settings" ? "bg-sky-900" : ""
-          }`}
-          onClick={() => handleSetActiveTab("settings")}
-        >
-          <Settings /> {isDashboard ? "Settings" : ""}
-        </Link>
-        <Link
-          to="/profile"
-          className={`flex gap-2 hover:bg-sky-900 p-2 rounded-sm transition-all duration-300 ease-in hover:cursor-pointer ${
-            activeTab === "profile" ? "bg-sky-900" : ""
-          }`}
-          onClick={() => handleSetActiveTab("profile")}
-        >
-          <UserRoundPen />
-          {isDashboard ? "Profile" : ""}
-        </Link>
+        {dashTabs.slice(3).map((item, index) => (
+          <DashTabBg
+            name={item.name}
+            isDashboard={isDashboard}
+            handleSetActiveTab={handleSetActiveTab}
+            activeTab={activeTab}
+            Icon={item.icon}
+            key={index}
+          />
+        ))}
       </section>
     </main>
   );
