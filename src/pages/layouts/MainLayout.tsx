@@ -1,5 +1,6 @@
 import Footer from "@/components/common/Footer";
 import NavBar from "@/components/common/NavBar";
+import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
@@ -7,7 +8,9 @@ const MainLayout = () => {
     <div className="mt-6 flex flex-col">
       <NavBar />
       <main className="flex-grow mx-auto py-8 w-full">
-        <Outlet />
+        <Suspense>
+          <Outlet />
+        </Suspense>
       </main>
       <Footer />
     </div>

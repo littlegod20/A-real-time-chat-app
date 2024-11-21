@@ -1,16 +1,20 @@
 import "./App.css";
-import Login from "./pages/auth/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SignUp from "./pages/auth/SignUp";
 import Landing from "./pages/home/Landing";
 import MainLayout from "./pages/layouts/MainLayout";
-import About from "./pages/home/About";
-import DashboardLayout from "./pages/layouts/DashboardLayout";
-import ChatPage from "./pages/user/ChatPage";
-import Status from "./pages/user/Status";
-import Calls from "./pages/user/Calls";
-import Profile from "./pages/user/Profile";
-import Settings from "./pages/user/Settings";
+import { lazy, Suspense } from "react";
+import DashboardLayout from "./pages/layouts/DashboardLayout.tsx";
+import AuthSkeleton from "./components/skeletons/AuthSkeleton.tsx";
+
+const ChatPerson = lazy(() => import("./pages/user/ChatPerson.tsx"));
+const ChatPage = lazy(() => import("./pages/user/ChatPage.tsx"));
+const Settings = lazy(() => import("./pages/user/Settings.tsx"));
+const Profile = lazy(() => import("./pages/user/Profile.tsx"));
+const Status = lazy(() => import("./pages/user/Status.tsx"));
+const About = lazy(() => import("./pages/home/About.tsx"));
+const Calls = lazy(() => import("./pages/user/Calls.tsx"));
+const Login = lazy(() => import("./pages/auth/Login.tsx"));
+const SignUp = lazy(() => import("./pages/auth/SignUp.tsx"));
 
 function App() {
   return (
@@ -18,8 +22,22 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* Authentication routes */}
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/signup"
+            element={
+              <Suspense fallback={<AuthSkeleton />}>
+                <SignUp />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <Suspense fallback={<AuthSkeleton />}>
+                <Login />
+              </Suspense>
+            }
+          />
 
           {/* Landing page routes */}
           <Route element={<MainLayout />}>
@@ -27,8 +45,10 @@ function App() {
             <Route path="/about" element={<About />} />
           </Route>
 
+          {/* User Page Routes */}
           <Route element={<DashboardLayout />}>
             <Route path="/chats" element={<ChatPage />} />
+            <Route path="/chats/:id" element={<ChatPerson />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/status" element={<Status />} />

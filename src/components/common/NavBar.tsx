@@ -1,5 +1,5 @@
 import { useState } from "react";
-import chat from "../../assets/chat.png";
+// import chat from "../../assets/chat.png";
 import DesktopMenu from "../widgets/DesktopMenu";
 import MobileView from "../widgets/MobileMenu";
 import { Link } from "react-router-dom";
@@ -17,7 +17,7 @@ const NavBar = () => {
         <section className="relative w-1/6">
           <Link to="/">
             <img
-              src={chat}
+              src={'/chat.png'}
               alt="logo image"
               className="w-12 sm:w-16 hover:cursor-pointer"
             />
