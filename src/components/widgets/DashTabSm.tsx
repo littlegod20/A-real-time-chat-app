@@ -7,6 +7,7 @@ const DashTabSm: React.FC<DashType> = ({
   activeTab,
   handleSetActiveTab,
 }) => {
+  
   return (
     <>
       <Link

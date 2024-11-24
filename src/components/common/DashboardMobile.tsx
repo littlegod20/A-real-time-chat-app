@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const DashboardMobile = () => {
   // const [, startTransition] = useTransition();
-  const [activeTab, setActiveTab] = useState("chats");
+  const [activeTab, setActiveTab] = useState("Chats");
 
   const navigate = useNavigate();
 

@@ -6,7 +6,7 @@ import { dashTabs } from "@/lib/constants";
 
 const DashboardDesktop = () => {
   const [, startTransition] = useTransition();
-  const [activeTab, setActiveTab] = useState("chats");
+  const [activeTab, setActiveTab] = useState("Chats");
   const [isDashboard, setIsDashboard] = useState(false);
 
   const navigate = useNavigate();
@@ -14,6 +14,7 @@ const DashboardDesktop = () => {
   const handleSetActiveTab = (val: string) => {
     // this is used to set priority for the tabs. so when a user has already clicked a tab an is in the process of loading and then the user clicks another tab to move there, this code allows the user to move freely to the new tab without waiting for the current tab to finish loading
     startTransition(() => setActiveTab(val));
+    console.log("val:", val);
   };
 
   const handleOpenDashboard = () => {
@@ -22,6 +23,7 @@ const DashboardDesktop = () => {
 
   useEffect(() => {
     navigate(`/${activeTab}`);
+    console.log('tab:',activeTab)
   }, [navigate, activeTab]);
 
   //
