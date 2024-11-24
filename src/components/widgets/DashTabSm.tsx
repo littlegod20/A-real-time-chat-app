@@ -7,11 +7,10 @@ const DashTabSm: React.FC<DashType> = ({
   activeTab,
   handleSetActiveTab,
 }) => {
-  
   return (
     <>
       <Link
-        to={`/${name.toLowerCase()}`}
+        to={`/${name}`}
         className={`flex flex-col items-center gap-1 ${
           activeTab === name ? "text-blue-600" : ""
         }`}

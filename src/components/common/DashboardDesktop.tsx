@@ -1,6 +1,5 @@
 import { Menu } from "lucide-react";
 import { useEffect, useState, useTransition } from "react";
-import { useNavigate } from "react-router-dom";
 import DashTabBg from "../widgets/DashTabBg";
 import { dashTabs } from "@/lib/constants";
 
@@ -8,8 +7,6 @@ const DashboardDesktop = () => {
   const [, startTransition] = useTransition();
   const [activeTab, setActiveTab] = useState("chats");
   const [isDashboard, setIsDashboard] = useState(false);
-
-  const navigate = useNavigate();
 
   const handleSetActiveTab = (val: string) => {
     // this is used to set priority for the tabs. so when a user has already clicked a tab an is in the process of loading and then the user clicks another tab to move there, this code allows the user to move freely to the new tab without waiting for the current tab to finish loading
@@ -21,12 +18,9 @@ const DashboardDesktop = () => {
     setIsDashboard(!isDashboard);
   };
 
-  useEffect(() => {
-    // navigate(`/${activeTab}`);
-    console.log("tab:", activeTab);
-  }, [navigate, activeTab]);
-
-  //
+  useEffect(()=>{
+    console.log('active tab:', activeTab)
+  })
 
   return (
     <main
