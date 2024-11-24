@@ -40,23 +40,23 @@ export const loginData: Partial<AuthType> = {
 
 export const dashTabs = [
   {
-    name: "Chats",
+    name: "chats",
     icon: MessageCircle,
   },
   {
-    name: "Status",
+    name: "status",
     icon: CircleDashed,
   },
   {
-    name: "Calls",
+    name: "calls",
     icon: Phone,
   },
   {
-    name: "Settings",
+    name: "settings",
     icon: Settings,
   },
   {
-    name: "Profile",
+    name: "profile",
     icon: UserRoundPen,
   },
 ];

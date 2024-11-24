@@ -18,7 +18,7 @@ const DashTabSm: React.FC<DashType> = ({
         onClick={() => handleSetActiveTab(name)}
       >
         <Icon size={20} />
-        <p className="font-bold">{name}</p>
+        <p className="font-bold">{name.capitalize()}</p>
       </Link>
     </>
   );

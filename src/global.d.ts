@@ -1,6 +1,6 @@
 declare global {
   interface String {
-    capitalizer(): string;
+    capitalize(): string;
   }
 }
 

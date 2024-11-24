@@ -6,7 +6,7 @@ import { dashTabs } from "@/lib/constants";
 
 const DashboardDesktop = () => {
   const [, startTransition] = useTransition();
-  const [activeTab, setActiveTab] = useState("Chats");
+  const [activeTab, setActiveTab] = useState("chats");
   const [isDashboard, setIsDashboard] = useState(false);
 
   const navigate = useNavigate();
@@ -22,8 +22,8 @@ const DashboardDesktop = () => {
   };
 
   useEffect(() => {
-    navigate(`/${activeTab}`);
-    console.log('tab:',activeTab)
+    // navigate(`/${activeTab}`);
+    console.log("tab:", activeTab);
   }, [navigate, activeTab]);
 
   //
@@ -40,8 +40,11 @@ const DashboardDesktop = () => {
       </header>
 
       <aside className="px-2 flex justify-start">
-        <div className="hover:bg-sky-900 flex justify-center duration-300 ease-in transition-colors p-2 rounded-md">
-          <Menu onClick={handleOpenDashboard} />
+        <div
+          className="hover:bg-sky-900 flex justify-center duration-300 ease-in transition-colors p-2 rounded-md"
+          onClick={handleOpenDashboard}
+        >
+          <Menu />
         </div>
       </aside>
 
