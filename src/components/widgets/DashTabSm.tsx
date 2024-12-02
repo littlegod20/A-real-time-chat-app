@@ -1,5 +1,4 @@
 import { DashType } from "@/utils/types";
-import { Link } from "react-router-dom";
 
 const DashTabSm: React.FC<DashType> = ({
   name,
@@ -9,16 +8,15 @@ const DashTabSm: React.FC<DashType> = ({
 }) => {
   return (
     <>
-      <Link
-        to={`/${name}`}
-        className={`flex flex-col items-center gap-1 ${
+      <div
+        className={`flex flex-col items-center gap-1 cursor-pointer ${
           activeTab === name ? "text-blue-600" : ""
         }`}
         onClick={() => handleSetActiveTab(name)}
       >
         <Icon size={20} />
         <p className="font-bold">{name.capitalize()}</p>
-      </Link>
+      </div>
     </>
   );
 };
