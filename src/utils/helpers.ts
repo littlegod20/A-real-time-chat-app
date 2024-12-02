@@ -9,7 +9,7 @@ String.prototype.capitalize = function () {
 // helper for lazy loading a component
 export const lazyLoader = (path: string, namedExport?: string) => {
   return lazy(async () => {
-    const promise = import(/* @vite-ignore */ path);
+    const promise = import(path);
     if (!namedExport) {
       // this is for default components
       return wait(2000).then(() => promise);

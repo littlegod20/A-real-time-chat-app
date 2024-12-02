@@ -26,7 +26,7 @@ const DashboardMobile = () => {
   }, [handleSetActiveTab]);
 
   return (
-    <main className="flex justify-evenly items-center p-2 text-xs sm:hidden  bottom-0 z-50 sticky bg-red-600 h-[10%]">
+    <main className="flex justify-evenly items-center p-2 text-xs sm:hidden  bottom-0 z-50 sticky bg-sky-950 h-[10%]">
       {dashTabs.map((item, index) => (
         <DashTabSm
           name={item.name}
