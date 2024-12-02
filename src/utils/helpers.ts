@@ -1,6 +1,6 @@
 import { lazy } from "react";
 
-String.prototype.capitalizer = function () {
+String.prototype.capitalize = function () {
   const firstLetter = this[0].toUpperCase();
   const rest = this.slice(1).toLowerCase();
   return firstLetter + rest;
@@ -9,7 +9,7 @@ String.prototype.capitalizer = function () {
 // helper for lazy loading a component
 export const lazyLoader = (path: string, namedExport?: string) => {
   return lazy(async () => {
-    const promise = import(/* @vite-ignore */ path);
+    const promise = import(path);
     if (!namedExport) {
       // this is for default components
       return wait(2000).then(() => promise);

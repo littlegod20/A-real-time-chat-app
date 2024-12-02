@@ -1,8 +1,8 @@
 import { Menu } from "lucide-react";
-import { useEffect, useState, useTransition } from "react";
-import { useNavigate } from "react-router-dom";
+import { useCallback, useEffect, useState, useTransition } from "react";
 import DashTabBg from "../widgets/DashTabBg";
 import { dashTabs } from "@/lib/constants";
+import { useNavigate } from "react-router-dom";
 
 const DashboardDesktop = () => {
   const [, startTransition] = useTransition();
@@ -11,20 +11,27 @@ const DashboardDesktop = () => {
 
   const navigate = useNavigate();
 
-  const handleSetActiveTab = (val: string) => {
+  const handleSetActiveTab = useCallback((val: string) => {
     // this is used to set priority for the tabs. so when a user has already clicked a tab an is in the process of loading and then the user clicks another tab to move there, this code allows the user to move freely to the new tab without waiting for the current tab to finish loading
     startTransition(() => setActiveTab(val));
-  };
+    navigate(`/${val}`);
+
+    localStorage.setItem("activeTab", val);
+
+    console.log("val:", val);
+  }, [navigate]);
 
   const handleOpenDashboard = () => {
     setIsDashboard(!isDashboard);
   };
 
   useEffect(() => {
-    navigate(`/${activeTab}`);
-  }, [navigate, activeTab]);
-
-  //
+    const currentTab = localStorage.getItem("activeTab");
+    console.log("current tab:", currentTab);
+    if (currentTab) {
+      handleSetActiveTab(currentTab);
+    }
+  }, [handleSetActiveTab]);
 
   return (
     <main
@@ -38,8 +45,11 @@ const DashboardDesktop = () => {
       </header>
 
       <aside className="px-2 flex justify-start">
-        <div className="hover:bg-sky-900 flex justify-center duration-300 ease-in transition-colors p-2 rounded-md">
-          <Menu onClick={handleOpenDashboard} />
+        <div
+          className="hover:bg-sky-900 flex justify-center duration-300 ease-in transition-colors p-2 rounded-md"
+          onClick={handleOpenDashboard}
+        >
+          <Menu />
         </div>
       </aside>
 

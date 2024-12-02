@@ -1,6 +1,4 @@
 import { DashType } from "@/utils/types";
-import { Link } from "react-router-dom";
-
 
 const DashTabBg: React.FC<DashType> = ({
   activeTab,
@@ -11,16 +9,15 @@ const DashTabBg: React.FC<DashType> = ({
 }) => {
   return (
     <>
-      <Link
-        to={`/${name}`}
+      <div
         className={`flex gap-2 hover:bg-sky-900 p-2 rounded-sm transition-all duration-300 ease-in hover:cursor-pointer ${
           activeTab === name ? "bg-sky-900" : ""
         }`}
         onClick={() => handleSetActiveTab(name)}
       >
         {" "}
-        <Icon size={25} /> {isDashboard ? `${name}` : ""}
-      </Link>
+        <Icon size={25} /> {isDashboard ? `${name.capitalize()}` : ""}
+      </div>
     </>
   );
 };

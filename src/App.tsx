@@ -5,9 +5,12 @@ import MainLayout from "./pages/layouts/MainLayout";
 import { lazy, Suspense } from "react";
 import DashboardLayout from "./pages/layouts/DashboardLayout.tsx";
 import AuthSkeleton from "./components/skeletons/AuthSkeleton.tsx";
+import { wait } from "./utils/helpers.ts";
 
 const ChatPerson = lazy(() => import("./pages/user/ChatPerson.tsx"));
-const ChatPage = lazy(() => import("./pages/user/ChatPage.tsx"));
+const ChatPage = lazy(
+  async () => await wait(6000).then(() => import("./pages/user/ChatPage.tsx"))
+);
 const Settings = lazy(() => import("./pages/user/Settings.tsx"));
 const Profile = lazy(() => import("./pages/user/Profile.tsx"));
 const Status = lazy(() => import("./pages/user/Status.tsx"));
