@@ -6,13 +6,13 @@ import { Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
   return (
-    <main className="sm:flex bg-sky-900 text-white font-semibold h-screen">
+    <main className="sm:flex  bg-sky-900 text-white font-semibold h-screen w-screen">
       <DashboardDesktop />
-      <section className="w-full relative h-[90%] sm:h-screen p-3 sm:p-5">
-        <Suspense fallback={<ChatSkeleton />}>
+      <Suspense fallback={<ChatSkeleton />}>
+        <section className="h-[90%] sm:h-screen p-2  flex-1 sm:w-3/5">
           <Outlet />
-        </Suspense>
-      </section>
+        </section>
+      </Suspense>
       <DashboardMobile />
     </main>
   );
