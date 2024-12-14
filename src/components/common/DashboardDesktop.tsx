@@ -11,15 +11,18 @@ const DashboardDesktop = () => {
 
   const navigate = useNavigate();
 
-  const handleSetActiveTab = useCallback((val: string) => {
-    // this is used to set priority for the tabs. so when a user has already clicked a tab an is in the process of loading and then the user clicks another tab to move there, this code allows the user to move freely to the new tab without waiting for the current tab to finish loading
-    startTransition(() => setActiveTab(val));
-    navigate(`/${val}`);
+  const handleSetActiveTab = useCallback(
+    (val: string) => {
+      // this is used to set priority for the tabs. so when a user has already clicked a tab an is in the process of loading and then the user clicks another tab to move there, this code allows the user to move freely to the new tab without waiting for the current tab to finish loading
+      startTransition(() => setActiveTab(val));
+      navigate(`/${val}`);
 
-    localStorage.setItem("activeTab", val);
+      localStorage.setItem("activeTab", val);
 
-    console.log("val:", val);
-  }, [navigate]);
+      console.log("val:", val);
+    },
+    [navigate]
+  );
 
   const handleOpenDashboard = () => {
     setIsDashboard(!isDashboard);
@@ -35,7 +38,7 @@ const DashboardDesktop = () => {
 
   return (
     <main
-      className={`hidden sm:block h-screen bg-sky-950 w-72 relative z-50 transition-all ${
+      className={`hidden sm:block h-screen bg-sky-950 w-72 relative z-50 transition-all  ${
         isDashboard ? "" : "w-[70px]"
       }`}
     >

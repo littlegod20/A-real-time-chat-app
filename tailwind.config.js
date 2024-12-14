@@ -5,6 +5,9 @@ export default {
   theme: {
     extend: {
       aspectRatio: { "4/3": "4/3", "16/9": "16/9" },
+      flexGrow: {
+        2: "2",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
