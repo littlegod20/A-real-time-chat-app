@@ -19,7 +19,7 @@ const UserContainer = () => {
   return (
     <>
       {newUsers.map((item, index) => (
-        <div className="flex gap-2 bg-white w-full">
+        <div className="flex gap-2 bg-white w-full" key={index}>
           <img src={item.avatar.toDataUri()} alt="avatar name" key={index} />
           <div className="flex flex-col  bg-green-500 justify-between w-4/5">
             <div className="flex justify-between">

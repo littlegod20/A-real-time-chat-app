@@ -34,6 +34,11 @@ const DashboardDesktop = () => {
     if (currentTab) {
       handleSetActiveTab(currentTab);
     }
+
+    // return () => {
+    //   localStorage.removeItem("activeTab");
+    //   // handleSetActiveTab('chats');
+    // };
   }, [handleSetActiveTab]);
 
   return (
