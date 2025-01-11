@@ -2,12 +2,11 @@ import { LucideIcon } from "lucide-react";
 import { IconType } from "react-icons/lib";
 
 export interface AuthType {
-  firstName: string;
-  surname: string;
   email: string;
   password: string;
   confirmPassword: string;
   userName: string;
+  userNameOrEmail?: string;
 }
 
 export interface FormTypes {

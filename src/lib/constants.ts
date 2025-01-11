@@ -10,7 +10,7 @@ import {
 export const formLabels: FormTypes[] = [
   {
     label: "user name",
-    placeholder: "eg. @jonny30",
+    placeholder: "eg. jonny30",
     type: "text",
   },
   {
@@ -38,12 +38,11 @@ export const loginFormLabels: FormTypes[] = [
   {
     label: "password",
     placeholder: "Enter password",
+    type: "password",
   },
 ];
 
 export const signUpData: AuthType = {
-  firstName: "",
-  surname: "",
   password: "",
   confirmPassword: "",
   email: "",
@@ -51,7 +50,7 @@ export const signUpData: AuthType = {
 };
 
 export const loginData: Partial<AuthType> = {
-  email: "",
+  userNameOrEmail: "",
   password: "",
 };
 

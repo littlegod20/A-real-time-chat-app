@@ -27,6 +27,7 @@ const SignUp = () => {
   // define my onsubmit function
   const onSubmit = (value: z.infer<typeof signUpFormSchema>) => {
     console.log(value);
+    console.log("Submitting...");
     navigate("/login");
   };
 
@@ -48,7 +49,12 @@ const SignUp = () => {
               {formLabels.map((item) => (
                 <FormField
                   control={form.control}
-                  name={item.label.camelCase() as keyof AuthType}
+                  name={
+                    item.label.camelCase() as keyof Omit<
+                      AuthType,
+                      "userNameOrEmail"
+                    >
+                  }
                   key={item.label}
                   render={({ field, fieldState: { error } }) => (
                     <FormItem>
