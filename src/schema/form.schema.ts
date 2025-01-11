@@ -32,7 +32,7 @@ export const signUpFormSchema = z
   });
 
 export const loginFormSchema = z.object({
-  email: z.string().email({ message: "Please use a valid email." }),
+  "userNameOrEmail": z.string().email({ message: "Please use a valid email." }),
   password: z
     .string()
     .min(6, { message: "password must contain 6 or more characters" }),

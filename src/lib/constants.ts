@@ -9,14 +9,14 @@ import {
 
 export const formLabels: FormTypes[] = [
   {
-    label: "first Name",
-    placeholder: "eg. John",
+    label: "user name",
+    placeholder: "eg. @jonny30",
     type: "text",
   },
   {
-    label: "surname",
-    placeholder: "eg. Doe",
-    type: "text",
+    label: "email",
+    placeholder: "eg. johndoe@gmail.com",
+    type: "email",
   },
   {
     label: "password",
@@ -28,15 +28,16 @@ export const formLabels: FormTypes[] = [
     placeholder: "Enter password again",
     type: "password",
   },
+];
+
+export const loginFormLabels: FormTypes[] = [
   {
-    label: "email",
-    placeholder: "eg. johndoe@gmail.com",
-    type: "email",
+    label: "user name or Email",
+    placeholder: "eg. john32 or john@gmail.com",
   },
   {
-    label: "user name",
-    placeholder: "eg. @jonny30",
-    type: "text",
+    label: "password",
+    placeholder: "Enter password",
   },
 ];
 
