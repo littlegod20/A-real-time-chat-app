@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Menu } from "lucide-react";
 import { useCallback, useEffect, useState, useTransition } from "react";
 import DashTabBg from "../widgets/DashTabBg";
@@ -34,7 +35,11 @@ const DashboardDesktop = () => {
     if (currentTab) {
       handleSetActiveTab(currentTab);
     }
-  }, [handleSetActiveTab]);
+
+    return () => {
+      localStorage.removeItem("activeTab");
+    };
+  }, []);
 
   return (
     <main

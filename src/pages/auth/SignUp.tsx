@@ -13,7 +13,7 @@ import { formLabels, signUpData } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AuthType } from "@/utils/types";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   // defined my form
@@ -22,9 +22,12 @@ const SignUp = () => {
     defaultValues: signUpData,
   });
 
+  const navigate = useNavigate();
+
   // define my onsubmit function
   const onSubmit = (value: z.infer<typeof signUpFormSchema>) => {
     console.log(value);
+    navigate("/login");
   };
 
   return (
@@ -45,13 +48,13 @@ const SignUp = () => {
               {formLabels.map((item) => (
                 <FormField
                   control={form.control}
-                  name={item.label as keyof AuthType}
+                  name={item.label.camelCase() as keyof AuthType}
                   key={item.label}
                   render={({ field, fieldState: { error } }) => (
                     <FormItem>
                       <FormLabel>
                         <p className="text-sky-950 font-semibold text-xs">
-                          {item.label[0].toUpperCase() + item.label.slice(1)}
+                          {item.label.capitalize()}
                         </p>
                       </FormLabel>
                       <FormControl>
@@ -59,6 +62,7 @@ const SignUp = () => {
                           placeholder={item.placeholder}
                           {...field}
                           className="focus-visible:ring-1 focus-visible:ring-sky-900"
+                          type={item.type}
                         />
                       </FormControl>
                       {error ? (
