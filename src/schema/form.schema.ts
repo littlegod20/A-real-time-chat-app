@@ -2,14 +2,6 @@ import { z } from "zod";
 
 export const signUpFormSchema = z
   .object({
-    firstName: z
-      .string()
-      .min(2, { message: "first name should be at least 2 characters" })
-      .max(50),
-    surname: z
-      .string()
-      .min(2, { message: "surname should be at least 2 characters" })
-      .max(50),
     email: z
       .string()
       .min(1, { message: "Email field is empty" })
@@ -21,10 +13,7 @@ export const signUpFormSchema = z
     userName: z
       .string()
       .min(4, { message: "User name must have 4 or more chars" })
-      .regex(
-        /^[\w_.]+\s*/i,
-        "User name must start with a letter"
-      ),
+      .regex(/^[\w_.]+\s*/i, "User name must start with a letter"),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords don't match",
@@ -32,7 +21,13 @@ export const signUpFormSchema = z
   });
 
 export const loginFormSchema = z.object({
-  "userNameOrEmail": z.string().email({ message: "Please use a valid email." }),
+  userNameOrEmail: z
+    .string()
+    .min(4, { message: "Invalid input" })
+    .regex(
+      /^[\w]+@[a-z.]+[a-z]+ | ^[\w_.]+\s*/i,
+      "Email or username is not valid"
+    ),
   password: z
     .string()
     .min(6, { message: "password must contain 6 or more characters" }),

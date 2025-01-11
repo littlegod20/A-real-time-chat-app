@@ -27,6 +27,7 @@ const SignUp = () => {
   // define my onsubmit function
   const onSubmit = (value: z.infer<typeof signUpFormSchema>) => {
     console.log(value);
+    console.log("Submitting...");
     navigate("/login");
   };
 
