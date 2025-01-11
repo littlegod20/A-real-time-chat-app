@@ -38,12 +38,11 @@ export const loginFormLabels: FormTypes[] = [
   {
     label: "password",
     placeholder: "Enter password",
+    type: "password",
   },
 ];
 
 export const signUpData: AuthType = {
-  firstName: "",
-  surname: "",
   password: "",
   confirmPassword: "",
   email: "",

@@ -61,6 +61,7 @@ const Login = () => {
                       <FormControl>
                         <Input
                           placeholder={item.placeholder}
+                          type={item.type || 'text'}
                           {...field}
                           className="focus-visible:ring-1 focus-visible:ring-sky-900"
                         />
