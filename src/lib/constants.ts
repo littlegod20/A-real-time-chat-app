@@ -50,7 +50,7 @@ export const signUpData: AuthType = {
 };
 
 export const loginData: Partial<AuthType> = {
-  email: "",
+  userNameOrEmail: "",
   password: "",
 };
 

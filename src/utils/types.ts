@@ -6,6 +6,7 @@ export interface AuthType {
   password: string;
   confirmPassword: string;
   userName: string;
+  userNameOrEmail?: string;
 }
 
 export interface FormTypes {

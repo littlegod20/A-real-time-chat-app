@@ -24,8 +24,14 @@ const Login = () => {
   const navigate = useNavigate();
 
   // handling submit
-  const onSubmit = (val: z.infer<typeof loginFormSchema>) => {
-    console.log(val);
+  const onSubmit = (data: z.infer<typeof loginFormSchema>) => {
+    const isEmailInput = data.userNameOrEmail.includes("@");
+    
+    console.log(
+      isEmailInput ? "Email login:" : "Username login",
+      data.userNameOrEmail
+    );
+    // console.log(data);
     navigate("/chats");
   };
 
@@ -61,7 +67,7 @@ const Login = () => {
                       <FormControl>
                         <Input
                           placeholder={item.placeholder}
-                          type={item.type || 'text'}
+                          type={item.type || "text"}
                           {...field}
                           className="focus-visible:ring-1 focus-visible:ring-sky-900"
                         />
