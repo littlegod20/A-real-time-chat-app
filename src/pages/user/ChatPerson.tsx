@@ -1,8 +1,6 @@
 import MessageBubble from "@/components/widgets/MessageBubble";
 import decor from "../../assets/decor.png";
 import ChatInputs from "@/components/widgets/ChatInputs";
-import { useParams } from "react-router-dom";
-
 const temporaryData = [
   {
     message:
@@ -103,16 +101,11 @@ const temporaryData = [
 ];
 
 const ChatPerson = () => {
-  const { id } = useParams();
 
-  if (!id) {
-    console.log("No user found");
-    return;
-  }
 
   return (
     <main
-      className="w-full h-screen bg-repeat relative"
+      className="w-full h-full bg-repeat relative"
       style={{ backgroundImage: `url('${decor}')`, backgroundSize: "50px" }}
     >
       <div className="w-full backdrop-blur-sm sm:p-10 p-5 h-[88%] overflow-scroll ">
