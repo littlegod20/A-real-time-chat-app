@@ -10,14 +10,18 @@ export const signUpFormSchema = z
       .string()
       .min(2, { message: "surname should be at least 2 characters" })
       .max(50),
-    email: z.string().email({ message: "Please use a valid email." }),
+    email: z
+      .string()
+      .min(1, { message: "Email field is empty" })
+      .email({ message: "Please use a valid email." }),
     password: z
       .string()
       .min(6, { message: "password must contain 6 or more characters" }),
     confirmPassword: z.string(),
-    // userName: z
-    //   .string()
-    //   .regex(/@*[a-z0-9]/i, "User name should have an @ preceeding it."),
+    userName: z
+      .string()
+      .min(4, { message: "User name must have 4 or more chars" })
+      .regex(/^[a-z\s*]+[_.\s*]+[0-9\s*]*/i, "User name must start with a letter"),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords don't match",

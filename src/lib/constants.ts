@@ -31,6 +31,11 @@ export const formLabels: FormTypes[] = [
     placeholder: "eg. johndoe@gmail.com",
     type: "email",
   },
+  {
+    label: "user name",
+    placeholder: "eg. @jonny30",
+    type: "text",
+  },
 ];
 
 export const signUpData: AuthType = {
@@ -39,6 +44,7 @@ export const signUpData: AuthType = {
   password: "",
   confirmPassword:'',
   email: "",
+  userName:''
 };
 
 export const loginData: Partial<AuthType> = {

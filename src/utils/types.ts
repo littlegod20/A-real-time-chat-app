@@ -6,14 +6,15 @@ export interface AuthType {
   surname: string;
   email: string;
   password: string;
-  confirmPassword:string
+  confirmPassword: string;
+  userName: string;
 }
 
 export interface FormTypes {
   label: string;
   placeholder: string;
-  type?:string;
-  Icon?:LucideIcon
+  type?: string;
+  Icon?: LucideIcon;
 }
 
 export interface DashType {
