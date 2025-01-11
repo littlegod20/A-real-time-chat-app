@@ -13,7 +13,7 @@ import { formLabels, signUpData } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AuthType } from "@/utils/types";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   // defined my form
@@ -22,9 +22,12 @@ const SignUp = () => {
     defaultValues: signUpData,
   });
 
+  const navigate = useNavigate();
+
   // define my onsubmit function
   const onSubmit = (value: z.infer<typeof signUpFormSchema>) => {
     console.log(value);
+    navigate("/login");
   };
 
   return (

@@ -11,10 +11,12 @@ export const formLabels: FormTypes[] = [
   {
     label: "first Name",
     placeholder: "eg. John",
+    type: "text",
   },
   {
     label: "surname",
     placeholder: "eg. Doe",
+    type: "text",
   },
   {
     label: "password",
@@ -42,9 +44,9 @@ export const signUpData: AuthType = {
   firstName: "",
   surname: "",
   password: "",
-  confirmPassword:'',
+  confirmPassword: "",
   email: "",
-  userName:''
+  userName: "",
 };
 
 export const loginData: Partial<AuthType> = {
