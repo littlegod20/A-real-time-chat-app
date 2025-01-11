@@ -10,7 +10,7 @@ import {
 export const formLabels: FormTypes[] = [
   {
     label: "user name",
-    placeholder: "eg. @jonny30",
+    placeholder: "eg. jonny30",
     type: "text",
   },
   {

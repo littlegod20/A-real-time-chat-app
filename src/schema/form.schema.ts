@@ -22,7 +22,7 @@ export const signUpFormSchema = z
       .string()
       .min(4, { message: "User name must have 4 or more chars" })
       .regex(
-        /^[a-z]+\s*[_.]*\s*[0-9]*\s*/i,
+        /^[\w_.]+\s*/i,
         "User name must start with a letter"
       ),
   })
