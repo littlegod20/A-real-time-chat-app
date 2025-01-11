@@ -2,15 +2,18 @@ import { LucideIcon } from "lucide-react";
 import { IconType } from "react-icons/lib";
 
 export interface AuthType {
-  name: string;
+  firstName: string;
   surname: string;
   email: string;
   password: string;
+  confirmPassword:string
 }
 
 export interface FormTypes {
   label: string;
   placeholder: string;
+  type?:string;
+  Icon?:LucideIcon
 }
 
 export interface DashType {

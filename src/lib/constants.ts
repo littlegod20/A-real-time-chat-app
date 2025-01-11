@@ -9,7 +9,7 @@ import {
 
 export const formLabels: FormTypes[] = [
   {
-    label: "first name",
+    label: "first Name",
     placeholder: "eg. John",
   },
   {
@@ -17,20 +17,28 @@ export const formLabels: FormTypes[] = [
     placeholder: "eg. Doe",
   },
   {
-    label: "email",
-    placeholder: "eg. johndoe@gmail.com",
-  },
-  {
     label: "password",
     placeholder: "five alphanumeric chars or more",
+    type: "password",
+  },
+  {
+    label: "Confirm Password",
+    placeholder: "Enter password again",
+    type: "password",
+  },
+  {
+    label: "email",
+    placeholder: "eg. johndoe@gmail.com",
+    type: "email",
   },
 ];
 
 export const signUpData: AuthType = {
-  name: "",
+  firstName: "",
   surname: "",
-  email: "",
   password: "",
+  confirmPassword:'',
+  email: "",
 };
 
 export const loginData: Partial<AuthType> = {

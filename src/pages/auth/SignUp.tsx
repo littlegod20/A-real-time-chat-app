@@ -45,7 +45,7 @@ const SignUp = () => {
               {formLabels.map((item) => (
                 <FormField
                   control={form.control}
-                  name={item.label as keyof AuthType}
+                  name={item.label.camelCase() as keyof AuthType}
                   key={item.label}
                   render={({ field, fieldState: { error } }) => (
                     <FormItem>
@@ -59,6 +59,7 @@ const SignUp = () => {
                           placeholder={item.placeholder}
                           {...field}
                           className="focus-visible:ring-1 focus-visible:ring-sky-900"
+                          type={item.type}
                         />
                       </FormControl>
                       {error ? (
