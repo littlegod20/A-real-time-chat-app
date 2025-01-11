@@ -24,19 +24,22 @@ const UserContainer = () => {
                 )}
               </div>
               <div className="flex flex-col justify-between w-4/5">
-                <div className="flex justify-between">
+                <div className="flex justify-between items-center">
                   <header className="font-semibold text-base">
                     {item.userName}
                   </header>
-                  <div>date</div>
+                  <p className="text-xs font-normal">date</p>
                 </div>
-                <div className="flex-1">
-                  <p className="font-normal text-sm truncate">
+                <div className="flex items-center gap-1">
+                  <p className="font-normal text-xs truncate">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Pariatur amet eum ducimus animi maiores quo impedit
                     voluptate vero dolore corrupti? Illo veniam quis in eos
                     porro deleniti cum est deserunt!
                   </p>
+                  <div className="bg-sky-600 flex justify-center rounded-full px-1">
+                    <p className="text-xs font-medium">1</p>
+                  </div>
                 </div>
               </div>
             </div>
