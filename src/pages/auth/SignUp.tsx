@@ -51,7 +51,7 @@ const SignUp = () => {
                     <FormItem>
                       <FormLabel>
                         <p className="text-sky-950 font-semibold text-xs">
-                          {item.label[0].toUpperCase() + item.label.slice(1)}
+                          {item.label.capitalize()}
                         </p>
                       </FormLabel>
                       <FormControl>
