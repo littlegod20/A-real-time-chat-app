@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useCallback, useEffect, useState, useTransition } from "react";
 import DashTabSm from "../widgets/DashTabSm";
 import { dashTabs } from "@/lib/constants";
@@ -23,7 +24,11 @@ const DashboardMobile = () => {
     if (currentTab) {
       handleSetActiveTab(currentTab);
     }
-  }, [handleSetActiveTab]);
+
+    return () => {
+      localStorage.removeItem("activeTab");
+    };
+  }, []);
 
   return (
     <main className="flex justify-evenly items-center p-2 text-xs sm:hidden  bottom-0 z-50 sticky bg-sky-950 h-[10%]">

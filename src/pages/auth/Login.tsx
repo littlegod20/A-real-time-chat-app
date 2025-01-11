@@ -7,7 +7,7 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { formLabels, loginData } from "@/lib/constants";
+import { loginData, loginFormLabels } from "@/lib/constants";
 import { loginFormSchema } from "@/schema/form.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -44,16 +44,18 @@ const Login = () => {
               onSubmit={form.handleSubmit(onSubmit)}
               className="w-1/2 sm:w-[400px] space-y-3"
             >
-              {formLabels.slice(2).map((item) => (
+              {loginFormLabels.slice(0, 2).map((item) => (
                 <FormField
                   control={form.control}
-                  name={item.label as "email" | "password"}
+                  name={
+                    item.label.camelCase() as "userNameOrEmail" | "password"
+                  }
                   key={item.label}
                   render={({ field, fieldState: { error } }) => (
                     <FormItem>
                       <FormLabel>
                         <p className="text-sky-950 font-semibold text-xs">
-                          {item.label[0].toUpperCase() + item.label.slice(1)}
+                          {item.label.capitalize()}
                         </p>
                       </FormLabel>
                       <FormControl>
