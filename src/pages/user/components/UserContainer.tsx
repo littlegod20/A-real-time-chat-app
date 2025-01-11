@@ -17,20 +17,20 @@ const UserContainer = () => {
       {userList &&
         userList.map((item, index) => (
           <div className="w-full" key={index}>
-            <div className="flex  bg-sky-950 gap-2 p-2 sm:max-w-[300px] lg:min-w-[250px] lg:max-w-[500px] rounded-md">
+            <div className="flex bg-sky-950 gap-2 p-2 sm:max-w-[300px] lg:min-w-[250px] lg:max-w-[500px] rounded-md">
               <div className="flex">
                 {item.avatar && (
                   <img src={item.avatar} alt="avatar name" key={index} />
                 )}
               </div>
-              <div className="flex flex-col justify-between w-4/5">
+              <div className="flex flex-col justify-between w-[85%] ">
                 <div className="flex justify-between items-center">
                   <header className="font-semibold text-base">
                     {item.userName}
                   </header>
                   <p className="text-xs font-normal">date</p>
                 </div>
-                <div className="flex items-center gap-1">
+                <div className="flex items-center  justify-between w-full ">
                   <p className="font-normal text-xs truncate">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Pariatur amet eum ducimus animi maiores quo impedit
