@@ -9,7 +9,7 @@ import {
 
 export const formLabels: FormTypes[] = [
   {
-    label: "name",
+    label: "first name",
     placeholder: "eg. John",
   },
   {
