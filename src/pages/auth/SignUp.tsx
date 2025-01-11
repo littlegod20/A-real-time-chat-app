@@ -14,6 +14,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AuthType } from "@/utils/types";
 import { Link, useNavigate } from "react-router-dom";
+import { createAvatar } from "@dicebear/core";
+import { adventurer } from "@dicebear/collection";
 
 const SignUp = () => {
   // defined my form
@@ -26,8 +28,25 @@ const SignUp = () => {
 
   // define my onsubmit function
   const onSubmit = (value: z.infer<typeof signUpFormSchema>) => {
-    console.log(value);
-    console.log("Submitting...");
+    const data: AuthType = {
+      ...value,
+      avatar: createAvatar(adventurer, {
+        seed: value.userName,
+        size: 50,
+        backgroundColor: ["ffd5dc", "c0aede", "d1d4f9"],
+        radius: 999,
+        randomizeIds: true,
+      }).toDataUri(),
+    };
+    console.log("data:", data);
+
+    // checking for prev stored data
+    const prevDataJson = localStorage.getItem("usersData");
+    const prevData: AuthType[] = prevDataJson ? JSON.parse(prevDataJson) : [];
+
+    // updating local storage data
+    const updatedData = [...prevData, data];
+    localStorage.setItem("usersData", JSON.stringify(updatedData));
     navigate("/login");
   };
 
@@ -52,7 +71,7 @@ const SignUp = () => {
                   name={
                     item.label.camelCase() as keyof Omit<
                       AuthType,
-                      "userNameOrEmail"
+                      "userNameOrEmail" | "avatar"
                     >
                   }
                   key={item.label}

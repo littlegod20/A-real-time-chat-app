@@ -1,24 +1,24 @@
 export const users = [
   {
-    name: "josh",
+    userName: "josh",
     newMessage: "",
     date: "",
     notifications: "",
   },
   {
-    name: "angela",
+    userName: "angela",
     newMessage: "",
     date: "",
     notifications: "",
   },
   {
-    name: "bran",
+    userName: "bran",
     newMessage: "",
     date: "",
     notifications: "",
   },
   {
-    name: "dennis",
+    userName: "dennis",
     newMessage: "",
     date: "",
     notifications: "",
