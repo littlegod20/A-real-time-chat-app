@@ -7,7 +7,7 @@ import DashboardLayout from "./pages/layouts/DashboardLayout.tsx";
 import AuthSkeleton from "./components/skeletons/AuthSkeleton.tsx";
 import { wait } from "./utils/helpers.ts";
 
-const ChatPerson = lazy(() => import("./pages/user/ChatPerson.tsx"));
+const ChatPerson = lazy(() => import("./pages/user/ChatBox.tsx"));
 const ChatPage = lazy(
   async () => await wait(6000).then(() => import("./pages/user/ChatPage.tsx"))
 );

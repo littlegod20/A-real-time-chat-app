@@ -1,5 +1,5 @@
 import MessageBubble from "@/components/widgets/MessageBubble";
-import decor from "../../assets/decor.png";
+import chatBg from "../../assets/chatBg.jpg";
 import ChatInputs from "@/components/widgets/ChatInputs";
 const temporaryData = [
   {
@@ -100,16 +100,14 @@ const temporaryData = [
   },
 ];
 
-const ChatPerson = () => {
-
-
+const ChatBox = () => {
   return (
     <main
       className="w-full h-full bg-repeat relative"
-      style={{ backgroundImage: `url('${decor}')`, backgroundSize: "50px" }}
+      style={{ backgroundImage: `url('${chatBg}')`, backgroundSize: "50px" }}
     >
-      <div className="w-full backdrop-blur-sm sm:p-10 p-5 h-[88%] overflow-scroll ">
-        <section className="h-full">
+      <div className="w-full backdrop-blur-0 h-[88%] overflow-scroll">
+        <section className="h-full w-full p-2">
           {temporaryData.map((item) => (
             <MessageBubble
               isSender={item.isSender}
@@ -129,4 +127,4 @@ const ChatPerson = () => {
   );
 };
 
-export default ChatPerson;
+export default ChatBox;
