@@ -1,5 +1,5 @@
 import ChatBox from "./ChatBox";
-import UserContainer from "./components/UserContainer";
+import UserContainer from "../components/UserContainer";
 
 const ChatPage = () => {
   return (
@@ -8,7 +8,7 @@ const ChatPage = () => {
         <UserContainer />
       </div>
 
-      <div className="hidden sm:block h-full bg-purple-600 flex-1">
+      <div className="hidden h-screen flex-1 sm:flex flex-col">
         <ChatBox />
       </div>
     </main>
