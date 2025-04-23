@@ -52,8 +52,8 @@ const SignUp = () => {
 
   return (
     <main className="w-full flex justify-center">
-      <div className="min-h-screen flex items-center">
-        <section className="flex flex-col justify-center space-y-4 bg-white p-5 rounded-md">
+      <div className="min-h-screen flex items-center justify-center w-full p-4">
+        <section className="flex flex-col justify-center space-y-4 bg-white p-5 rounded-md w-full max-w-[400px] shadow-md">
           <header className="space-y-1">
             <h1 className="text-xl font-bold text-sky-800">Sign Up</h1>
             <p className="text-xs text-slate-500 italic font-medium">
@@ -63,7 +63,7 @@ const SignUp = () => {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="w-1/2 sm:w-[400px] space-y-3"
+              className="space-y-3"
             >
               {formLabels.map((item) => (
                 <FormField
