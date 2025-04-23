@@ -43,8 +43,8 @@ const DashboardDesktop = () => {
 
   return (
     <main
-      className={`hidden sm:block h-screen bg-sky-950 w-72 relative z-50 transition-all  ${
-        isDashboard ? "" : "w-[70px]"
+      className={`hidden sm:block h-screen bg-sky-950  relative z-50 transition-all  ${
+        isDashboard ? "w-72" : "w-[3rem]"
       }`}
     >
       <header className="relative top-0 flex items-center gap-4 p-4">
@@ -54,10 +54,10 @@ const DashboardDesktop = () => {
 
       <aside className="px-2 flex justify-start">
         <div
-          className="hover:bg-sky-900 flex justify-center duration-300 ease-in transition-colors p-2 rounded-md"
+          className={`hover:bg-sky-900 flex justify-center duration-300 ease-in transition-colors ${isDashboard ? 'p-2' : 'p-0'} rounded-md`}
           onClick={handleOpenDashboard}
         >
-          <Menu />
+          <Menu/>
         </div>
       </aside>
 

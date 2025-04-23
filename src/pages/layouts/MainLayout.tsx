@@ -5,14 +5,17 @@ import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
-    <div className="mt-6 flex flex-col">
+    <div className="flex flex-col h-screen">
       <NavBar />
       <main className="flex-grow mx-auto py-8 w-full">
         <Suspense>
           <Outlet />
         </Suspense>
       </main>
+      <div className="flex-1">
+
       <Footer />
+      </div>
     </div>
   );
 };
